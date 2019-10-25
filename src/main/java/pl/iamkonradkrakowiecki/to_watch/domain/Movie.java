@@ -22,12 +22,11 @@ public class Movie {
 
     private Long imdb_id;
     private String title;
-    private String director;
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate release_date;
 
     private Boolean to_watch;
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate when_watched;
     private String where_watched;
     private String note;

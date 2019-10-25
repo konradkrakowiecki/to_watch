@@ -1,0 +1,11 @@
+<input type="text" placeholder="Enter Title" (keyup)="searchMovie($event)" [(ngModel)]="movie_title"/><button (click)="searchMovie($event)">Search Movie</button>
+<p>{{error_search}}</p>
+<ul>
+  <li *ngFor="let movie of search_movies">
+    <button (click)="addMovie(movie.id)">
+      {{movie.original_title}} /
+      {{movie.release_date | slice:0:4}} /
+      {{movie.original_language | uppercase}}
+    </button>
+  </li>
+</ul>

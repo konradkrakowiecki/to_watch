@@ -1,0 +1,12 @@
+<p>{{movie_imdb.original_title}}</p>
+<p>{{movie_imdb.release_date}}</p>
+<p>Companies:</p>
+<p *ngFor="let company of movie_imdb.production_companies">>>> {{company.name}}</p>
+<p>Countries:</p>
+<p *ngFor="let country of movie_imdb.production_countries">>>> {{country.name}}</p>
+<p>{{movie_imdb.tagline}}</p>
+<p>{{movie_imdb.overview}}</p>
+<p>{{movie_imdb.runtime}}</p>
+<p>{{movie_imdb.vote_average}}</p>
+<p>{{movie_imdb.vote_count}}</p><br><br>
+<p>{{movie_db.to_watch}}</p>
