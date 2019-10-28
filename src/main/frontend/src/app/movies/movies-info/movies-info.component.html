@@ -9,4 +9,11 @@
 <p>{{movie_imdb.runtime}}</p>
 <p>{{movie_imdb.vote_average}}</p>
 <p>{{movie_imdb.vote_count}}</p><br><br>
-<p>{{movie_db.to_watch}}</p>
+---
+<p>Is watched: {{movie_db.to_watch}}</p>
+<p>When: {{movie_db.when_watched}}</p>
+<p>Where: {{movie_db.where_watched}}</p>
+<p>Note: {{movie_db.note}}</p>
+<p>Rating: {{movie_db.rating}}</p>
+---
+<app-watch-form [inputData]="movie_db"></app-watch-form>

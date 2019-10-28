@@ -11,8 +11,9 @@ import { MoviesService } from "./services/movies.service";
 import { HttpClientModule } from "@angular/common/http";
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MoviesAddComponent } from './movies/movies-add/movies-add.component';
-import { FormsModule } from "@angular/forms";
-import { MoviesEditComponent } from './movies/movies-edit/movies-edit.component';
+import { MoviesInfoComponent } from './movies/movies-info/movies-info.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { WatchFormComponent } from './watch-form/watch-form.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,15 @@ import { MoviesEditComponent } from './movies/movies-edit/movies-edit.component'
     AuthorComponent,
     MoviesListComponent,
     MoviesAddComponent,
-    MoviesEditComponent
+    MoviesInfoComponent,
+    WatchFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [MoviesService],
   bootstrap: [AppComponent]

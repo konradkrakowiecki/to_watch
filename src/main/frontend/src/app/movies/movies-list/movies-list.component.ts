@@ -23,7 +23,7 @@ export class MoviesListComponent implements OnInit {
   }
 
   showMovie(movie: Movie) {
-    this.router.navigate(['movies/edit/', movie.id]);
+    this.router.navigate(['movies/info/', movie.id]);
   }
 
   setMovieIsWatched(movie: Movie) {

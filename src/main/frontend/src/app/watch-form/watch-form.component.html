@@ -1,0 +1,38 @@
+<form [formGroup]="watchForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="to_watch">Watched</label>
+    <input type="checkbox" id="to_watch" formControlName="to_watch">
+  </div>
+
+  <div>
+    <label for="when_watched">Date</label>
+    <input type="date" id="when_watched" formControlName="when_watched">
+    <div *ngIf="watchForm.get('when_watched').errors && watchForm.get('when_watched').errors['future_date']">Date was not yet.</div>
+
+  </div>
+
+  <div>
+    <label for="where_watched">Link</label>
+    <input type="text" id="where_watched" formControlName="where_watched">
+    <div *ngIf="watchForm.get('where_watched').errors && watchForm.get('where_watched').errors.maxlength">Too long, max 100 characters.</div>
+  </div>
+
+  <div>
+    <label for="note">Note</label>
+    <input type="text" id="note" formControlName="note">
+    <div *ngIf="watchForm.get('note').errors && watchForm.get('note').errors.maxlength">Too long, max 200 characters.</div>
+  </div>
+
+  <div>
+    <label for="rating">Rating</label>
+    <select id="rating" formControlName="rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <button type="submit" [disabled]="watchForm.invalid">Save</button>
+  </div>
+</form>

@@ -3,10 +3,10 @@ import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-movies-edit',
-  templateUrl: './movies-edit.component.html',
-  styleUrls: ['./movies-edit.component.css']
+  templateUrl: './movies-info.component.html',
+  styleUrls: ['./movies-info.component.css']
 })
-export class MoviesEditComponent implements OnInit {
+export class MoviesInfoComponent implements OnInit {
 
   movie_imdb: any = null;
   movie_db: any = null;

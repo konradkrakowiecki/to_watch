@@ -4,10 +4,9 @@ import {StartComponent} from "./start/start.component";
 import {MoviesComponent} from "./movies/movies.component";
 import {TvseriesComponent} from "./tvseries/tvseries.component";
 import {AuthorComponent} from "./author/author.component";
-import {MoviesEditComponent} from "./movies/movies-edit/movies-edit.component";
-import {MovieFromImdbResolver} from "./movies/movies-edit/movie-from-imdb-resolver.service";
-import {MovieFromDbResolver} from "./movies/movies-edit/movie-from-db.resolver.service";
-import {MoviesListComponent} from "./movies/movies-list/movies-list.component";
+import {MoviesInfoComponent} from "./movies/movies-info/movies-info.component";
+import {MovieFromImdbResolver} from "./movies/movies-info/movie-from-imdb-resolver.service";
+import {MovieFromDbResolver} from "./movies/movies-info/movie-from-db.resolver.service";
 import {MoviesFromDbResolver} from "./movies/movies-list/movies-from-db-resolver.service";
 
 const routes: Routes = [
@@ -28,8 +27,8 @@ const routes: Routes = [
     }
   },
   {
-    path: "movies/edit/:movie.id",
-    component: MoviesEditComponent,
+    path: "movies/info/:movie.id",
+    component: MoviesInfoComponent,
     resolve: {
       movie_imdb: MovieFromImdbResolver,
       movie_db: MovieFromDbResolver
