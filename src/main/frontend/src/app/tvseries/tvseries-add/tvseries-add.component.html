@@ -1,0 +1,11 @@
+<input type="text" placeholder="Enter Title" (keyup)="searchTvseries($event)" [(ngModel)]="tvseries_title"/><button (click)="searchTvseries($event)">Search TV Series</button>
+<p>{{error_search}}</p>
+<ul>
+  <li *ngFor="let tv of search_tvseries">
+    <button (click)="addTvseries(tv.id)">
+      {{tv.original_name}} /
+      {{tv.first_air_date | slice:0:4}} /
+      {{tv.original_language | uppercase}}
+    </button>
+  </li>
+</ul>

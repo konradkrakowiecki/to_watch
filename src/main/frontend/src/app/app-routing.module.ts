@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {StartComponent} from "./start/start.component";
-import {MoviesComponent} from "./movies/movies.component";
-import {TvseriesComponent} from "./tvseries/tvseries.component";
-import {AuthorComponent} from "./author/author.component";
-import {MoviesInfoComponent} from "./movies/movies-info/movies-info.component";
-import {MovieFromImdbResolver} from "./movies/movies-info/movie-from-imdb-resolver.service";
-import {MovieFromDbResolver} from "./movies/movies-info/movie-from-db.resolver.service";
-import {MoviesFromDbResolver} from "./movies/movies-list/movies-from-db-resolver.service";
+import { StartComponent } from "./start/start.component";
+import { MoviesComponent } from "./movies/movies.component";
+import { TvseriesComponent } from "./tvseries/tvseries.component";
+import { AuthorComponent } from "./author/author.component";
+import { MoviesInfoComponent } from "./movies/movies-info/movies-info.component";
+import { MovieFromImdbResolver } from "./movies/movies-info/movie-from-imdb-resolver.service";
+import { MovieFromDbResolver } from "./movies/movies-info/movie-from-db.resolver.service";
+import { MoviesFromDbResolver } from "./movies/movies-list/movies-from-db-resolver.service";
+import { TvseriesFromDbResolver } from "./tvseries/tvseries-list/tvseries-from-db-resolver.service";
 
 const routes: Routes = [
   {
@@ -36,7 +37,10 @@ const routes: Routes = [
   },
   {
     path: "tvseries",
-    component: TvseriesComponent
+    component: TvseriesComponent,
+    resolve: {
+      tvseries: TvseriesFromDbResolver
+    }
   },
   {
     path: "author",

@@ -24,10 +24,11 @@ export class MoviesAddComponent implements OnInit {
 
     this.moviesService.getMovieFromImdb(imdb_id).subscribe(
       (movieFromImdb: any) => {
+        const { id, original_title, release_date } = movieFromImdb;
         const movie: Movie = new Movie(
-          movieFromImdb.id,
-          movieFromImdb.original_title,
-          movieFromImdb.release_date,
+          id,
+          original_title,
+          release_date,
           false,
           null,
           null,
@@ -39,9 +40,11 @@ export class MoviesAddComponent implements OnInit {
           (newMovie: Movie) => {
             this.movie_title = "";
             this.moviesService.eventMovieAdded.emit(newMovie);
-          }
+          },
+          error => console.log(error)
         );
-      }
+      },
+        error => console.log(error)
     );
   }
 
@@ -68,7 +71,7 @@ export class MoviesAddComponent implements OnInit {
     const length = this.movie_title.length;
     if (length < 1) this.error_search = "Please, enter at least one character.";
     else if (length >= 1 && length <= 2) {
-      this.error_search = "Please, enter a minimum of three characters to automatically search.";
+      this.error_search = "Please, enter a minimum of three characters to automatically search, or press Enter key.";
     } else if (length > 2) {
       this.error_search = "";
     }

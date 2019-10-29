@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let series of tvseries">
+    {{series.title}} /
+    {{series.release_date | slice:0:4}} /
+    {{series.to_watch}}
+  </li>
+</ul>

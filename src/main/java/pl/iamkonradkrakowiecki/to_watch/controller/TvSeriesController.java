@@ -38,7 +38,7 @@ public class TvSeriesController {
         return this.tvSeriesService.save_tv_series(tvSeries);
     }
 
-    @PostMapping("/{id}/saveSeasons")
+    @PostMapping("/{id}/saveseason")
     public TvSeason saveTvSeasons(@PathVariable Long id, @RequestBody TvSeason tvSeason) {
         this.tvSeasonService.save_tv_season(tvSeason);
         tvSeason.setTvSeries(this.tvSeriesRepository.findById(id).get());

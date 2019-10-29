@@ -1,7 +1,8 @@
-export class Movie {
+export class Tvepisode {
   public id: number;
   public imdb_id: number;
-  public title: string;
+  public episode_number: number;
+  public name: string;
   public release_date: string;
   public to_watch: boolean;
   public when_watched: string;
@@ -10,7 +11,8 @@ export class Movie {
   public rating: number;
 
   constructor(imdb_id: number,
-              title: string,
+              episode_number: number,
+              name: string,
               release_date: string,
               to_watch: boolean,
               when_watched: string,
@@ -18,7 +20,8 @@ export class Movie {
               note: string,
               rating: number) {
     this.imdb_id = imdb_id;
-    this.title = title;
+    this.episode_number = episode_number;
+    this.name = name;
     this.release_date = release_date;
     this.to_watch = to_watch;
     this.when_watched = when_watched;

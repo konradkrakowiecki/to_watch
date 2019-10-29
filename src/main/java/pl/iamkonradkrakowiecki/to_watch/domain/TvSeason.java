@@ -27,12 +27,12 @@ public class TvSeason {
     private Long imdb_id;
     private Integer season_number;
     private String name;
-    @JsonFormat(pattern = "dd.MM.yyyy")
-    private LocalDate air_date;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate release_date;
     private Integer episode_count;
 
     private Boolean to_watch;
-    @JsonFormat(pattern = "dd.MM.yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate when_watched;
     private String where_watched;
     private String note;

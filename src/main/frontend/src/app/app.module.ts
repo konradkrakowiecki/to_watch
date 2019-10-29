@@ -12,8 +12,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { MoviesListComponent } from './movies/movies-list/movies-list.component';
 import { MoviesAddComponent } from './movies/movies-add/movies-add.component';
 import { MoviesInfoComponent } from './movies/movies-info/movies-info.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { WatchFormComponent } from './watch-form/watch-form.component';
+import { TvseriesListComponent } from './tvseries/tvseries-list/tvseries-list.component';
+import { TvseriesAddComponent } from './tvseries/tvseries-add/tvseries-add.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { WatchFormComponent } from './watch-form/watch-form.component';
     MoviesListComponent,
     MoviesAddComponent,
     MoviesInfoComponent,
-    WatchFormComponent
+    WatchFormComponent,
+    TvseriesListComponent,
+    TvseriesAddComponent
   ],
   imports: [
     BrowserModule,
