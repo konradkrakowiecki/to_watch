@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {TvseriesService} from "../../services/tvseries.service";
-import {Tvseries} from "../tvseries.model";
-import {Tvseason} from "../tvseason.model";
-import {Tvepisode} from "../tvepisode.model";
-import {Observable} from "rxjs";
+import { TvseriesService } from "../../services/tvseries.service";
+import { Tvseries } from "../tvseries.model";
+import { Tvseason } from "../tvseason.model";
+import { Tvepisode } from "../tvepisode.model";
 
 @Component({
   selector: 'app-tvseries-add',
@@ -43,7 +42,7 @@ export class TvseriesAddComponent implements OnInit {
         this.tvseriesService.addTvseries(tvseries).subscribe(
           (newTvseries: Tvseries) => {
             this.tvseries_title = "";
-            this.addTvseason(series, newTvseries);
+            series.seasons.forEach(season => this.addTvseason(season, series.id, newTvseries.id));
           },
           error => console.log(error),
         );
@@ -52,56 +51,45 @@ export class TvseriesAddComponent implements OnInit {
     );
   }
 
-  addTvseason(tvseries_imdb, tvseries_db) {
-    tvseries_imdb.seasons.forEach(
-      season => {
-        const { id, season_number, name, air_date, episode_count } = season;
-        const tvseason: Tvseason = new Tvseason(
-          id,
-          season_number,
-          name,
-          air_date,
-          episode_count,
-          false,
-          null,
-          null,
-          null,
-          null,
-        );
-        this.tvseriesService.addTvseason(tvseries_db.id, tvseason).subscribe(
-          (newTvseason: Tvseason) => {
-            this.addTvepisode(newTvseason.id, newTvseason.season_number, tvseries_imdb.id);
-          },
+  addTvseason(season, tvseries_imdb_id, tvseries_db_id) {
+    const {id, season_number, name, air_date, episode_count} = season;
+    const tvseason: Tvseason = new Tvseason(
+      id,
+      season_number,
+      name,
+      air_date,
+      episode_count,
+      false,
+      null,
+      null,
+      null,
+      null,
+    );
+    this.tvseriesService.addTvseason(tvseries_db_id, tvseason).subscribe(
+      (newTvseason: Tvseason) => {
+        this.tvseriesService.getTvepisodeFromImdb(tvseries_imdb_id, newTvseason.season_number).subscribe(
+          data => data.episodes.forEach( episode => this.addTvepisode(newTvseason.id, episode)),
           error => console.log(error),
         );
       }
     );
   }
 
-  addTvepisode(tvseason_db_id, tvseason_db_number, tvseries_imdb_id) {
-    this.tvseriesService.getTvepisodeFromImdb(tvseries_imdb_id, tvseason_db_number).subscribe(
-      data => {
-        data.episodes.forEach(
-          episode => {
-            const { id, episode_number, name, air_date } = episode;
-            const tvepisode: Tvepisode = new Tvepisode(
-              id,
-              episode_number,
-              name,
-              air_date,
-              false,
-              null,
-              null,
-              null,
-              null,
-            );
-            this.tvseriesService.addTvepisode(tvseason_db_id, tvepisode).subscribe(
-              (newTvepisode: Tvepisode) => {},
-              error => console.log(error)
-            );
-          }
-        );
-      },
+  addTvepisode(tvseason_db_id, episode) {
+    const { id, episode_number, name, air_date } = episode;
+    const tvepisode: Tvepisode = new Tvepisode(
+      id,
+      episode_number,
+      name,
+      air_date,
+      false,
+      null,
+      null,
+      null,
+      null,
+    );
+    this.tvseriesService.addTvepisode(tvseason_db_id, tvepisode).subscribe(
+      (newTvepisode: Tvepisode) => {},
       error => console.log(error)
     );
   }

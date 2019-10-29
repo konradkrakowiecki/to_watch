@@ -18,12 +18,13 @@ export class WatchFormComponent implements OnInit {
 
 
   ngOnInit() {
+    const { to_watch, when_watched, where_watched, note, rating } = this.inputData;
     this.watchForm = new FormGroup({
-      to_watch: new FormControl(this.inputData.to_watch),
-      when_watched: new FormControl(this.inputData.when_watched, this.dateValidator),
-      where_watched: new FormControl(this.inputData.where_watched, Validators.maxLength(100)),
-      note: new FormControl(this.inputData.note, Validators.maxLength(200)),
-      rating: new FormControl(this.inputData.rating),
+      to_watch: new FormControl(to_watch),
+      when_watched: new FormControl(when_watched, this.dateValidator),
+      where_watched: new FormControl(where_watched, Validators.maxLength(100)),
+      note: new FormControl(note, Validators.maxLength(200)),
+      rating: new FormControl(rating),
     });
   }
 
@@ -37,11 +38,12 @@ export class WatchFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.inputData.to_watch = this.watchForm.value.to_watch;
-    this.inputData.when_watched = this.watchForm.value.when_watched;
-    this.inputData.where_watched = this.watchForm.value.where_watched;
-    this.inputData.note = this.watchForm.value.note;
-    this.inputData.rating = this.watchForm.value.rating;
+    const { to_watch, when_watched, where_watched, note, rating } = this.watchForm.value;
+    this.inputData.to_watch = to_watch;
+    this.inputData.when_watched = when_watched;
+    this.inputData.where_watched = where_watched;
+    this.inputData.note = note;
+    this.inputData.rating = rating;
     this.moviesService.addMovie(this.inputData).subscribe();
   }
 
