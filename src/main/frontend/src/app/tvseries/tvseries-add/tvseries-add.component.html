@@ -2,10 +2,9 @@
 <p>{{error_search}}</p>
 <ul>
   <li *ngFor="let tv of search_tvseries">
-    <button (click)="addTvseries(tv.id)">
-      {{tv.original_name}} /
-      {{tv.first_air_date | slice:0:4}} /
-      {{tv.original_language | uppercase}}
-    </button>
+    {{tv.original_name}} /
+    {{tv.first_air_date | slice:0:4}} /
+    {{tv.original_language | uppercase}}
+    <button (click)="addTvseries(tv.id)">+</button>
   </li>
 </ul>

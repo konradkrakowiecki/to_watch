@@ -11,4 +11,6 @@ public interface TvSeasonService {
     Optional<TvSeason> find_tv_season_by_id(Long id);
 
     TvSeason save_tv_season(TvSeason tvSeason);
+
+    void delete_tv_season(Long id);
 }

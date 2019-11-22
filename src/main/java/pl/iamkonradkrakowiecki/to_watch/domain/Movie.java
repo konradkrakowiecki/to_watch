@@ -20,6 +20,7 @@ public class Movie {
     @GeneratedValue
     private Long id;
 
+    private String type;
     private Long imdb_id;
     private String title;
     @JsonFormat(pattern = "yyyy-MM-dd")

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: 'app-movies-edit',
+  selector: 'app-movies-info',
   templateUrl: './movies-info.component.html',
   styleUrls: ['./movies-info.component.css']
 })

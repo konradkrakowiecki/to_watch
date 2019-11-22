@@ -29,4 +29,9 @@ public class TvEpisodeServiceImpl implements TvEpisodeService {
     public TvEpisode save_tv_episode(TvEpisode tvEpisode) {
         return tvEpisodeRepository.save(tvEpisode);
     }
+
+    @Override
+    public void delete_tv_episode(Long id) {
+        this.tvEpisodeRepository.deleteById(id);
+    }
 }

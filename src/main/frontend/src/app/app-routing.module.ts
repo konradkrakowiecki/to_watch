@@ -9,6 +9,11 @@ import { MovieFromImdbResolver } from "./movies/movies-info/movie-from-imdb-reso
 import { MovieFromDbResolver } from "./movies/movies-info/movie-from-db.resolver.service";
 import { MoviesFromDbResolver } from "./movies/movies-list/movies-from-db-resolver.service";
 import { TvseriesFromDbResolver } from "./tvseries/tvseries-list/tvseries-from-db-resolver.service";
+import { TvseriesInfoComponent } from "./tvseries/tvseries-info/tvseries-info.component";
+import { TvseriesFromImdbResolver } from "./tvseries/tvseries-info/tvseries-from-imdb-resolver.service";
+import { SeriesFromDbResolver } from "./tvseries/tvseries-info/series-from-db.resolver.service";
+import {TvseriesDeleteComponent} from "./tvseries/tvseries-delete/tvseries-delete.component";
+import {MoviesDeleteComponent} from "./movies/movies-delete/movies-delete.component";
 
 const routes: Routes = [
   {
@@ -36,10 +41,32 @@ const routes: Routes = [
     }
   },
   {
+    path: "movies/delete/:movie.id",
+    component: MoviesDeleteComponent,
+    resolve: {
+      movie: MovieFromDbResolver
+    }
+  },
+  {
     path: "tvseries",
     component: TvseriesComponent,
     resolve: {
       tvseries: TvseriesFromDbResolver
+    }
+  },
+  {
+    path: "tvseries/info/:tvseries.id",
+    component: TvseriesInfoComponent,
+    resolve: {
+      tvseries_imdb: TvseriesFromImdbResolver,
+      tvseries_db: SeriesFromDbResolver
+    }
+  },
+  {
+    path: "tvseries/delete/:tvseries.id",
+    component: TvseriesDeleteComponent,
+    resolve: {
+      tvseries: SeriesFromDbResolver
     }
   },
   {

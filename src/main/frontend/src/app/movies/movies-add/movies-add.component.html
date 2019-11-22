@@ -2,10 +2,9 @@
 <p>{{error_search}}</p>
 <ul>
   <li *ngFor="let movie of search_movies">
-    <button (click)="addMovie(movie.id)">
-      {{movie.original_title}} /
-      {{movie.release_date | slice:0:4}} /
-      {{movie.original_language | uppercase}}
-    </button>
+    {{movie.original_title}} /
+    {{movie.release_date | slice:0:4}} /
+    {{movie.original_language | uppercase}}
+    <button (click)="addMovie(movie.id)">+</button>
   </li>
 </ul>

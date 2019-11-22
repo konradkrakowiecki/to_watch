@@ -1,0 +1,12 @@
+{{tvseries_imdb.original_name}} / {{tvseries_db.to_watch}}
+<app-info-form [input_data]="tvseries_db"></app-info-form>
+<ul>
+  <li *ngFor="let season of tvseries_db.seasons | sortByNumber: 'season_number'">{{season.name}} / {{season.to_watch}}
+    <app-info-form [input_data]="season" [input_all]="[tvseries_db]"></app-info-form>
+    <ul>
+      <li *ngFor="let episode of season.episodes | sortByNumber: 'episode_number'">{{episode.episode_number}} / {{episode.name}} / {{episode.to_watch}}
+      <app-info-form [input_data]="episode" [input_all]="[tvseries_db, season]"></app-info-form>
+      </li>
+    </ul>
+  </li>
+</ul>

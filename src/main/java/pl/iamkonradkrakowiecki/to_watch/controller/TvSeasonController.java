@@ -42,4 +42,9 @@ public class TvSeasonController {
         tvEpisode.setTvSeason(this.tvSeasonRepository.findById(id).get());
         return this.tvEpisodeService.save_tv_episode(tvEpisode);
     }
+
+    @DeleteMapping(value = {"/{id}/delete", "/{id}/delete"})
+    public void delete(@PathVariable Long id) {
+        this.tvSeasonService.delete_tv_season(id);
+    }
 }

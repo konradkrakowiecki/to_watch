@@ -1,5 +1,6 @@
 export class Movie {
   public id: number;
+  public type: string;
   public imdb_id: number;
   public title: string;
   public release_date: string;
@@ -9,7 +10,8 @@ export class Movie {
   public note: string;
   public rating: number;
 
-  constructor(imdb_id: number,
+  constructor(type: string,
+              imdb_id: number,
               title: string,
               release_date: string,
               to_watch: boolean,
@@ -17,6 +19,7 @@ export class Movie {
               where_watched: string,
               note: string,
               rating: number) {
+    this.type = type;
     this.imdb_id = imdb_id;
     this.title = title;
     this.release_date = release_date;

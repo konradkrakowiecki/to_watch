@@ -24,13 +24,13 @@ public class TvSeries {
     @GeneratedValue
     private Long Id;
 
+    private String type;
     private Long imdb_id;
     private String title;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate release_date;
-
-    private Integer number_of_episodes;
-    private Integer number_of_seasons;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate last_update;
 
     private Boolean to_watch;
     @JsonFormat(pattern = "yyyy-MM-dd")

@@ -30,4 +30,9 @@ public class TvEpisodeController {
     public TvEpisode saveTvEpisode(@RequestBody TvEpisode tvEpisode) {
         return this.tvEpisodeService.save_tv_episode(tvEpisode);
     }
+
+    @DeleteMapping(value = {"/{id}/delete", "/{id}/delete"})
+    public void delete(@PathVariable Long id) {
+        this.tvEpisodeService.delete_tv_episode(id);
+    }
 }

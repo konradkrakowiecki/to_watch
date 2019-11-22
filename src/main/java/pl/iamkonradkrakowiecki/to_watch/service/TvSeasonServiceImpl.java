@@ -29,4 +29,9 @@ public class TvSeasonServiceImpl implements TvSeasonService {
     public TvSeason save_tv_season(TvSeason tvSeason) {
         return tvSeasonRepository.save(tvSeason);
     }
+
+    @Override
+    public void delete_tv_season(Long id) {
+        this.tvSeasonRepository.deleteById(id);
+    }
 }

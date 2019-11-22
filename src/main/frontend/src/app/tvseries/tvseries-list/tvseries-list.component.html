@@ -1,7 +1,25 @@
-<ul>
-  <li *ngFor="let series of tvseries">
-    {{series.title}} /
-    {{series.release_date | slice:0:4}} /
-    {{series.to_watch}}
-  </li>
-</ul>
+<button (click)="update()">Update</button>
+<button (click)="sort_by = 'sortByTitle'">Sort by: title</button>
+<button (click)="sort_by = 'sortByToWatch'">Sort by: to watch</button>
+<ng-container *ngIf="sort_by === 'sortByTitle'">
+  <ul>
+    <li *ngFor="let series of tvseries | sortByTitle">
+      {{series.title}} /
+      {{series.release_date | slice:0:4}} /
+      {{series.to_watch}}
+      <button (click)="showTvseries(series)">i</button>
+      <button (click)="deleteTvseries(series)">-</button>
+    </li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="sort_by === 'sortByToWatch'">
+  <ul>
+    <li *ngFor="let series of tvseries | sortByToWatch">
+      {{series.title}} /
+      {{series.release_date | slice:0:4}} /
+      {{series.to_watch}}
+      <button (click)="showTvseries(series)">i</button>
+      <button (click)="deleteTvseries(series)">-</button>
+    </li>
+  </ul>
+</ng-container>

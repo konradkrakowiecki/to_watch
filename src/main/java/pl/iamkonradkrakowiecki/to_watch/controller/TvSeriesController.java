@@ -44,4 +44,9 @@ public class TvSeriesController {
         tvSeason.setTvSeries(this.tvSeriesRepository.findById(id).get());
         return this.tvSeasonService.save_tv_season(tvSeason);
     }
+
+    @DeleteMapping(value = {"/{id}/delete", "/{id}/delete"})
+    public void delete(@PathVariable Long id) {
+        this.tvSeriesService.delete_tv_series(id);
+    }
 }

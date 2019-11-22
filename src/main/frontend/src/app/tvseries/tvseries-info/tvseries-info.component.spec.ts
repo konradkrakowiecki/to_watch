@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WatchFormComponent } from './watch-form.component';
+import { TvseriesInfoComponent } from './tvseries-info.component';
 
-describe('WatchFormComponent', () => {
-  let component: WatchFormComponent;
-  let fixture: ComponentFixture<WatchFormComponent>;
+describe('TvseriesInfoComponent', () => {
+  let component: TvseriesInfoComponent;
+  let fixture: ComponentFixture<TvseriesInfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WatchFormComponent ]
+      declarations: [ TvseriesInfoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WatchFormComponent);
+    fixture = TestBed.createComponent(TvseriesInfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

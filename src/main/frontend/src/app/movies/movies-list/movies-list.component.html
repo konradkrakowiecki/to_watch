@@ -1,10 +1,26 @@
-<ul>
-  <li *ngFor="let movie of movies">
-    {{movie.title}} /
-    {{movie.release_date | slice:0:4}} /
-    {{movie.to_watch}}
-    <button (click)="showMovie(movie)">Info</button>
-    <button (click)="setMovieIsWatched(movie)">Watched</button>
-    <button (click)="deleteMovie(movie)">Delete</button>
-  </li>
-</ul>
+<button (click)="sort_by = 'sortByTitle'">Sort by: title</button>
+<button (click)="sort_by = 'sortByToWatch'">Sort by: to watch</button>
+<ng-container *ngIf="sort_by === 'sortByTitle'">
+  <ul>
+    <li *ngFor="let movie of movies | sortByTitle">
+      {{movie.title}} /
+      {{movie.release_date | slice:0:4}} /
+      {{movie.to_watch}}
+      <button (click)="showMovie(movie)">i</button>
+      <button (click)="setMovieIsWatched(movie)">watched</button>
+      <button (click)="deleteMovie(movie)">-</button>
+    </li>
+  </ul>
+</ng-container>
+<ng-container *ngIf="sort_by === 'sortByToWatch'">
+  <ul>
+    <li *ngFor="let movie of movies | sortByToWatch">
+      {{movie.title}} /
+      {{movie.release_date | slice:0:4}} /
+      {{movie.to_watch}}
+      <button (click)="showMovie(movie)">i</button>
+      <button (click)="setMovieIsWatched(movie)">watched</button>
+      <button (click)="deleteMovie(movie)">-</button>
+    </li>
+  </ul>
+</ng-container>

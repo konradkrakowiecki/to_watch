@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -24,12 +26,12 @@ public class TvSeason {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String type;
     private Long imdb_id;
     private Integer season_number;
     private String name;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate release_date;
-    private Integer episode_count;
 
     private Boolean to_watch;
     @JsonFormat(pattern = "yyyy-MM-dd")
@@ -41,7 +43,7 @@ public class TvSeason {
     @OneToMany(mappedBy = "tvSeason")
     private Set<TvEpisode> episodes = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name="tv_series_id")
     @JsonIgnore
     private TvSeries tvSeries;

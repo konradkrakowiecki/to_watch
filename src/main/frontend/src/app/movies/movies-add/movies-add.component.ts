@@ -26,6 +26,7 @@ export class MoviesAddComponent implements OnInit {
       (movieFromImdb: any) => {
         const { id, original_title, release_date } = movieFromImdb;
         const movie: Movie = new Movie(
+          "movie",
           id,
           original_title,
           release_date,

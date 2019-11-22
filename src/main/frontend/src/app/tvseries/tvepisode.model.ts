@@ -1,5 +1,6 @@
 export class Tvepisode {
   public id: number;
+  public type: string;
   public imdb_id: number;
   public episode_number: number;
   public name: string;
@@ -10,7 +11,8 @@ export class Tvepisode {
   public note: string;
   public rating: number;
 
-  constructor(imdb_id: number,
+  constructor(type: string,
+              imdb_id: number,
               episode_number: number,
               name: string,
               release_date: string,
@@ -19,6 +21,7 @@ export class Tvepisode {
               where_watched: string,
               note: string,
               rating: number) {
+    this.type = type;
     this.imdb_id = imdb_id;
     this.episode_number = episode_number;
     this.name = name;

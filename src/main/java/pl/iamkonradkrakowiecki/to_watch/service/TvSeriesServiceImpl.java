@@ -29,4 +29,9 @@ public class TvSeriesServiceImpl implements TvSeriesService {
     public TvSeries save_tv_series(TvSeries tvSeries) {
         return tvSeriesRepository.save(tvSeries);
     }
+
+    @Override
+    public void delete_tv_series(Long id) {
+        this.tvSeriesRepository.deleteById(id);
+    }
 }

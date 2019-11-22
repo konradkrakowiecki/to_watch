@@ -11,4 +11,6 @@ public interface TvEpisodeService {
     Optional<TvEpisode> find_tv_episode_by_id(Long id);
 
     TvEpisode save_tv_episode(TvEpisode tvEpisode);
+
+    void delete_tv_episode(Long id);
 }
